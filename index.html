@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc; /* Cream color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dog Facts</h1>
+        <button id="factButton">Show me a fact!</button>
+        <div id="factDisplay" class="fact-display"></div>
+    </div>
+    <script>
+        const facts = [
+            "Dogs have been our companions for over 14,000 years.",
+            "A dog's sense of smell is at least 40 times better than ours.",
+            "Dogs can hear sounds at frequencies as high as 65,000 Hz.",
+            "The Basenji dog is known as the 'barkless dog' because it doesn't bark.",
+            "Dogs have three eyelids, including one to keep their eyes moist and protected.",
+            "A Greyhound can run up to 45 miles per hour, making it the fastest dog breed.",
+            "Dogs sweat through their paw pads to help regulate their body temperature.",
+            "The Labrador Retriever has been the most popular dog breed in the United States for over 30 years.",
+            "Dogs have about 1,700 taste buds, compared to humans who have approximately 9,000.",
+            "The world's oldest known breed is the Saluki, originally bred in Egypt around 329 B.C."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
